@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анна | Преподаватель английского и французского языков</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FBF9F5;          /* Светлый кремовый/холст */
+            --card-bg: #FFFFFF;
+            --text-main: #2C2C2C;        /* Мягкий графит */
+            --text-muted: #5A626A;
+            
+            /* Французская палитра */
+            --french-blue: #2C435E;       /* Приглушенный французский синий */
+            --french-blue-hover: #1E3045;
+            --french-wine: #8B3A42;       /* Изысканный бордовый акцент */
+            --french-wine-light: #F7EDED;
+            
+            --border-subtle: #E8E2D9;
+            --shadow-soft: 0 10px 30px rgba(44, 67, 94, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        /* Рукописные заголовки Caveat */
+        .handwritten {
+            font-family: 'Caveat', cursive;
+        }
+
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Профиль / Шапка */
+        .profile-card {
+            background: var(--card-bg);
+            padding: 35px 25px 25px;
+            border-radius: 40px 10px 40px 10px; /* Изящная асимметрия */
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--french-blue);
+            padding: 4px;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            background: var(--card-bg);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--french-blue);
+            line-height: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--french-wine);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .quote {
+            font-size: 21px;
+            color: var(--text-muted);
+            border-top: 1px stroke var(--border-subtle);
+            padding-top: 15px;
+            line-height: 1.3;
+        }
+
+        /* Изящная главная кнопка */
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--french-blue);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 18px 25px;
+            border-radius: 50px; /* Изящная овальная форма */
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(44, 67, 94, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--french-blue-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(44, 67, 94, 0.28);
+        }
+
+        /* Карточки */
+        .section-card {
+            background: var(--card-bg);
+            padding: 28px 22px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .section-title {
+            font-size: 30px;
+            color: var(--french-blue);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1;
+        }
+
+        /* Услуги */
+        .service-item {
+            background-color: var(--bg-color);
+            padding: 18px;
+            border-radius: 18px;
+            margin-bottom: 14px;
+            border: 1px solid #F0EAE1;
+        }
+
+        .service-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-header {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-level {
+            background: var(--french-wine-light);
+            color: var(--french-wine);
+            font-size: 13px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .service-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Информационные списки */
+        .info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            font-size: 14px;
+        }
+
+        .info-list li {
+            position: relative;
+            padding-left: 22px;
+            line-height: 1.5;
+        }
+
+        .info-list li::before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: var(--french-wine);
+            font-size: 12px;
+            top: 2px;
+        }
+
+        /* Теги стран */
+        .countries-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .country-tag {
+            background: var(--bg-color);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            color: var(--text-main);
+            font-weight: 400;
+        }
+
+        /* Вторичная изящная кнопка */
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: transparent;
+            border: 1.5px solid var(--french-wine);
+            color: var(--french-wine);
+            text-decoration: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--french-wine);
+            color: #FFFFFF;
+        }
+
+        /* Подвал */
+        .footer {
+            text-align: center;
+            padding: 15px 0 20px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+        .social-link {
+            color: var(--french-blue);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .social-link:hover {
+            color: var(--french-wine);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Шапка / Профиль -->
+        <div class="profile-card">
+            <div class="avatar-container">
+                <!-- Вставьте ссылку на ваше фото ниже -->
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300" alt="Анна" class="avatar">
+                <span class="badge">🇫🇷 🇬🇧</span>
+            </div>
+            <h1 class="handwritten">Анна</h1>
+            <div class="subtitle serif">English & Français</div>
+            <p class="quote handwritten">«Язык — это не просто грамматика, это ключ к мышлению, свободе и пониманию мира без границ.»</p>
+        </div>
+
+        <!-- Главная кнопка действия -->
+        <a href="https://t.me/your_username" class="btn-primary" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.6 3.72-8.6 3.72a2.24 2.24 0 0 0-.25 4.08l4.4 2.02 2.02 4.4a2.24 2.24 0 0 0 4.08-.25l3.72-8.6 3.72-8.6a2.24 2.24 0 0 0-1.468-2.685z"/></svg>
+            Записаться на урок / Консультацию
+        </a>
+
+        <!-- Блок Услуг -->
+        <div class="section-card">
+            <div class="section-title handwritten">
+                <span>📚</span> Форматы обучения
+            </div>
+            
+            <div class="service-item">
+                <div class="service-header">
+                    <span>🇬🇧 Английский язык</span>
+                    <span class="service-level">A1 – C1</span>
+                </div>
+                <div class="service-desc">Индивидуальное наставничество. От базовой речи до свободного владения, подготовки к переезду и работе.</div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-header">
+                    <span>🇫🇷 Французский язык</span>
+                    <span class="service-level">A1 – B2</span>
+                </div>
+                <div class="service-desc">Пошаговый путь от «с нуля» до уверенного уровня B2. Погружение в живую речь и культуру.</div>
+            </div>
+        </div>
+
+        <!-- Блок Доверия / Образование -->
+        <div class="section-card">
+            <div class="section-title handwritten">
+                <span>🎓</span> Образование и опыт
+            </div>
+            <ul class="info-list">
+                <li><strong>МГЛУ (Бакалавриат):</strong> Теория и методика преподавания иностранных языков и культур</li>
+                <li><strong>МГЛУ (Магистратура):</strong> Межъязыковая и межкультурная коммуникация: теория и практика</li>
+                <li><strong>Сертификаты:</strong> Французский язык B2 (готовлюсь к сдаче C1)</li>
+                <li><strong>Волонтерство:</strong> Участие в международных языковых программах</li>
+                <li><strong>Опыт преподавания:</strong> Английский — 10 лет, Французский — 5 лет</li>
+            </ul>
+        </div>
+
+        <!-- География и Открытость миру -->
+        <div class="section-card">
+            <div class="section-title handwritten">
+                <span>🌍</span> География и культура
+            </div>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; font-weight: 300;">
+                Опыт погружения в языковую среду и путешествий по разным континентам:
+            </p>
+            <div class="countries-grid">
+                <span class="country-tag">🇫🇷 Франция</span>
+                <span class="country-tag">🇮🇹 Италия</span>
+                <span class="country-tag">🇦🇺 Австралия</span>
+                <span class="country-tag">🇨🇳 Китай</span>
+                <span class="country-tag">🇲🇾 Малайзия</span>
+                <span class="country-tag">🇵🇭 Филиппины</span>
+            </div>
+        </div>
+
+        <!-- Вторичные кнопки (Telegram-канал) -->
+        <a href="https://t.me/your_channel" class="btn-secondary" target="_blank">
+            <span>📢</span> Мой Telegram-канал
+        </a>
+
+        <!-- Подвал -->
+        <div class="footer">
+            <div class="social-links">
+                <a href="https://t.me/your_username" class="social-link">Telegram</a>
+                <a href="#" class="social-link">Instagram</a>
+            </div>
+            <p class="handwritten" style="font-size: 18px; color: var(--text-muted);">Анна • Открывая мир через языки</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
